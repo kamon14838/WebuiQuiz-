@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <div class="container">
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><i class="material-icons left">info_outline</i>Games club</a>
+      <ul class="right hide-on-med-and-down">
+
+      </ul>
+    </div>
+  </nav>
+
+    <div class="container">
+      <h1 class="header center orange-text">Games club</h1>
+      <div class="row center">
+        <h5 class="header col s12 light"></h5>
+      </div>
+
+      <form class="" action="index.html" method="post">
+        <form class="col s12">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">supervisor_account</i>
+          <label for="username">Username</label>
+          <input id="username" type="text" class="validate">
+          </div>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">lock</i>
+          <label for="password">Password</label>
+          <input id="password" type="password" class="validate">
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row center">
+      <a class="waves-effect waves-light btn " id="signin">Sign in</a>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+<script type="text/javascript">
+$("#signin").click(function() {
+  var url = "http://membershipwebapi977290.azurewebsites.net/api/Members/signin?";
+  url += "username=" + $("#username").val();
+  url += "&password=" + $("#password").val();
+  console.log(url);
+  $.get(url, function(data, status) {
+    console.log(data);
+    if(data == true){
+      //Goto User's info
+
+    }else{
+      //Goto Sign up
+      $("#err").show();
+      //window.location.href = "signup.html";
+    }
+  });
+});
+</script>
+
+  </body>
+</html>
